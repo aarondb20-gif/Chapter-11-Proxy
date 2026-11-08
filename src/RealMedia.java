@@ -7,6 +7,7 @@ public class RealMedia implements MediaItemInterface{
         this.duration = duration;
         System.out.println("Establishing connection to remote server...[Success]");
     }
+
     @Override
     public String getTitle() {
         return title;

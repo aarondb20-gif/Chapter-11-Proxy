@@ -11,3 +11,8 @@ the real media object from a different machine to the client, but the virtual pr
 the client requests it and delegates method calls to the real media object. I did have trouble figuring out how I was 
 going to create the instance of the media object in the virtual proxy class, until I found out that I should create a 
 private method for that.
+
+Phase 3 
+An edge case I found for the virtual proxy is that the object can stay in memory after it is created, which would defeat
+the purpose of the proxy. The program needs to check if the object is not being used anymore or use a stop playing method
+to set the object back to null so that it doesn't use more resources than necessary.

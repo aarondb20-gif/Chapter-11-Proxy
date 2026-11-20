@@ -21,12 +21,14 @@ public class VirtualMediaProxy implements MediaItemInterface{
     }
     @Override
     public String getTitle() throws RemoteException {
-        return this.getTitle();
+        mediaInitialized();
+        return realMedia.getTitle();
     }
 
     @Override
     public int getDuration() throws RemoteException {
-        return this.getDuration();
+        mediaInitialized();
+        return realMedia.getDuration();
 
     }
 

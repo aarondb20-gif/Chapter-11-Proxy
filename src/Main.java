@@ -15,7 +15,7 @@ public class Main {
         VirtualMediaProxy vmProxy1 = new VirtualMediaProxy("Feliz Navidad", 240);
         vmProxy0.play();
         vmProxy1.play();
-        System.out.println(vmProxy0.getTitle() + " " + vmProxy0.getDuration());
+        System.out.println("Title method: " + vmProxy0.getTitle() + " Duration method: " + vmProxy0.getDuration());
 
 
 

@@ -8,38 +8,31 @@ public class RemoteMediaProxy implements MediaItemInterface{
         this.media = media;
         this.isConnected = isConnected;
     }
+    private void ensureConnected() throws RemoteException {
+        if (media == null) {
+            throw new RemoteException("Remote media reference is missing.");
+        }
+        if (!isConnected) {
+            // Logic to establish connection goes here
+            isConnected = true;
+        }
+    }
 
     @Override
     public String getTitle() throws RemoteException {
-        if(isConnected == true) {
-            return media.getTitle();
-        }else{
-            isConnected = true;
-            return "Not Connected...Connecting...";
-
-
-        }
+        ensureConnected();
+        return media.getTitle();
     }
 
     @Override
     public int getDuration() throws RemoteException {
-        if(isConnected == true) {
-            return media.getDuration();
-        }else{
-            isConnected = true;
-            return 0;
-        }
+        ensureConnected();
+        return media.getDuration();
     }
 
     @Override
     public void play() throws RemoteException {
-        if(isConnected == true){
-            media.play();
-        }else{
-            System.out.println("Not Connected...Connecting...");
-            isConnected = true;
-        }
-
-
+        ensureConnected();
+        media.play();
     }
 }

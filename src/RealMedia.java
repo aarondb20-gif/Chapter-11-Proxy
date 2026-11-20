@@ -20,6 +20,6 @@ public class RealMedia implements MediaItemInterface{
 
     @Override
     public void play() {
-        System.out.println(duration + " seconds " + title + " Now Playing.");
+        System.out.println(" Now Playing: " + title + " - " + duration + " seconds" );
     }
 }

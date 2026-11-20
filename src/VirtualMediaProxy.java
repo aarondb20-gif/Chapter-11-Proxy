@@ -1,9 +1,9 @@
-import javax.xml.transform.Source;
+
 import java.rmi.RemoteException;
-import java.sql.SQLOutput;
+
 
 public class VirtualMediaProxy implements MediaItemInterface{
-    RealMedia realMedia = null;
+    private RealMedia realMedia = null;
     private String title;
     private int duration;
 
@@ -21,18 +21,12 @@ public class VirtualMediaProxy implements MediaItemInterface{
     }
     @Override
     public String getTitle() throws RemoteException {
-        if(realMedia == null) {
-            mediaInitialized();
-        }
-        return realMedia.getTitle();
+        return this.getTitle();
     }
 
     @Override
     public int getDuration() throws RemoteException {
-        if (realMedia == null) {
-            mediaInitialized();
-        }
-        return realMedia.getDuration();
+        return this.getDuration();
 
     }
 
